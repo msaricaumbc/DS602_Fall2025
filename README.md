@@ -1,5 +1,5 @@
 # DATA 602: Introduction to Machine Learning
-## Spring 2025
+## Fall 2025
 ## Class
 
 DATA 602-03 (2406) WEB Aug 27, 2025-Dec 9, 2025
