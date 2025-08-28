@@ -3,7 +3,8 @@
 2. Create a __private__ new repository __DS602__
 3. Add me & TA as collaborators (usernames are in the blackboard & in the link below)
 4. Fill the following form. (Make sure you are logged into your umbc email. It's restricted to your school email)
-   * https://docs.google.com/forms/d/1cBYcr_gMsd9xySWiQUUoqSDIj4HRNl3MfeAMoDTbo9I/preview
+https://docs.google.com/forms/d/14-PvfD1ZKTH9E3ZtyhraSiRPmOwuXFIlvB25Nlj_jkA/preview
+
 5. If you are not familiar with Github, watch the following and get familiarize yourself. You will be using this tool a lot. I will no longer allow uploading files directly! Here is a sample tutorial but there are a lot of them. Find one that you enjoy.
    *   https://www.youtube.com/watch?v=tRZGeaHPoaw
 
