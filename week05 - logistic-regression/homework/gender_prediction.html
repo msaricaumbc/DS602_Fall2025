@@ -112,6 +112,8 @@
         function predictGender(obj) {
             console.log('predictGender for', obj);
 
+            // let difference = obj.forehead_width_cm - obj.forehead_height_cm;
+
             // YOUR CODE HERE....
             let score = obj.long_hair * 0.1
                 + obj.forehead_width_cm * 0.1
@@ -120,6 +122,7 @@
                 + obj.nose_long * 0.1
                 + obj.lips_thin * 0.1
                 + obj.distance_nose_to_lip_long * 0.1
+                // + difference * 0.1
                 + 0.1;
 
             let probability = sigmoid(score);
