@@ -1,0 +1,13 @@
+sudo yum update -y
+sudo yum install python3-pip -y
+
+aws s3 cp s3://com.msarica.ds/server.py ./server.py
+aws s3 cp s3://com.msarica.ds/movie_model.pkl ./movie_model.pkl
+
+sudo pip3 install flask
+sudo pip3 install flask_cors
+sudo pip3 install waitress
+sudo pip3 install joblib
+sudo pip3 install scikit-learn=='1.5.1'
+
+sudo python3 server.py
