@@ -10,3 +10,4 @@
 **/data/*
 *.xls
 midterm/_*
+__*.py
