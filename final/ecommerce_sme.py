@@ -48,60 +48,23 @@ class SME:
             )
     
     def ask(self, valuedict):
-        """
-        Query the SME for purchase probability given feature values.
-        
-        Parameters:
-        -----------
-        valuedict : dict
-            Dictionary of feature names and values to query.
-            String values should be passed as strings.
-            Numeric values should be passed as numbers.
-            None values are ignored.
-        
-        Returns:
-        --------
-        float
-            Mean purchase probability (0-1) for matching records
-        
-        Raises:
-        -------
-        Exception
-            If query limit exceeded or no matching records found
-        """
         self.asked += 1
-        
         if self.asked > 500:
             raise Exception("Sorry, you have asked enough (500 query limit)")
-        
-        arr = []
-        for prop in valuedict:
-            val = valuedict[prop]
-            if val is None:
+    
+        df = self.df
+        for prop, val in valuedict.items():
+            if val is None or pd.isna(val) or prop not in self.df.columns: 
                 continue
-            
-            # Format value for query
-            if isinstance(val, str):
-                val = f"'{val}'"
-            
-            arr.append(f'{prop} == {val}')
-
-        print("Query parameters:", arr)
-        
-        if not arr:
-            raise Exception("No valid query parameters provided")
-        
-        query = ' and '.join(arr)
-        
-        try:
-            result = self.df.query(query)
-        except Exception as e:
-            raise Exception(f"Query error: {str(e)}")
-        
-        if len(result) == 0:
+            df = df[df[prop] == val]
+    
+        if len(df) == 0:
             raise Exception("I don't know (no matching records found)")
-        
-        return float(result['will_purchase'].mean())
+    
+        return float(df['will_purchase'].mean())
+
+    def ask_index(self, idx):
+        return self.df['will_purchase'][idx]
 
 
 if __name__ == "__main__":
